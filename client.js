@@ -7,24 +7,46 @@ const connect = function () {
     port: 50541,
   });
 
+  conn.setEncoding("utf8");
+
   conn.on('connect', () => {
     console.log('successfully connected to the game server!')
     conn.write("Name: Ren")
-    // setTimeout(() => {
-    //   conn.write("Move: up")
-    // }, 2000)
-    // setInterval(() => {
-    //   conn.write("Move: right")
-    // }, 5000)
   })
 
-  conn.setEncoding("utf8");
-
-  conn.on('data', (data) => {
-    console.log('Server says: ', data);
-  });
+  // conn.on('data', (data) => {
+  //   console.log('Server says: ', data);
+  // });
 
   return conn;
 };
 
-module.export = connect();
+module.exports = {connect};
+
+
+//for later
+  // process.stdin.on('data', () => {
+  //   if(key === 'w'){
+  //     setTimeout(() => {
+  //       process.stdin.write('Move: up')
+  //     }, 50)
+  //   }
+  //   else if(key === 's'){
+  //     setTimeout(() => {
+  //       process.stdin.write('Move: down')
+  //     }, 50)
+  //   }
+  //   else if(key === 'a'){
+  //     setTimeout(() => {
+  //       process.stdin.write('Move: left')
+  //     }, 50)
+  //   }
+  //   else if(key === 'd'){
+  //     setTimeout(() => {
+  //       process.stdin.write('Move: right')
+  //     })
+  //   }
+  //   else if (key === '\u0003') {
+  //     process.exit();
+  //   }
+  // })
