@@ -1,4 +1,5 @@
 const net = require("net");
+const connect = require('./client')
 
 // // set the encoding to utf-8
 const connect = function () {
@@ -13,9 +14,9 @@ const connect = function () {
 
   // conn.setEncoding("utf8");
 
-  // conn.on('data', (message) => {
-  //   console.log(message)
-  // })
+  conn.on('data', (message) => {
+    console.log(message)
+  })
 
   return conn;
 };
