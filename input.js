@@ -11,6 +11,8 @@ const setupInput = function(conn) {
 
 const handleUserInput = function(key) {
   switch (key) {
+  case '\u0003':
+    process.exit();
   case 'w':
     connection.write('Move: up');
     break;
@@ -23,32 +25,13 @@ const handleUserInput = function(key) {
   case 'd':
     connection.write('Move: right');
     break;
-  case '\u0003':
-    process.exit();
+  case '/':
+    connection.write('Say: We did it, bois!')
+    break
+  case 'p':
+    connection.write('I\'m gonna die now')
+    break
   }
 };
 
 module.exports = setupInput;
-
-// switch(key){
-//   case (key == 'w'):
-//     setInterval(() => {
-//       stdin.write('Move: up')
-//     },);
-//     break;
-//   case (key == 'a'):
-//     setInterval(() => {
-//       stdin.write('Move: left')
-//     },)
-//     break
-//   case (key == 's'):
-//     setInterval(() => {
-//       stdin.write('Move: down')
-//     },)
-//     break
-//   case (key == 'd'):
-//     setInterval(() => {
-//       stdin.write('Move: right')
-//     },)
-//     break
-// }
